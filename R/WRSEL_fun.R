@@ -27,6 +27,10 @@ WRSEL <- function(X, num_nodes = NULL) {
   stopifnot(is(X,"matrix") | is(X,"Matrix"))
   N <- ncol(X)
   n <- nrow(X)
+  if(N==1) stop("Need more than one sample")
+  if(n==1) stop("Need more than one variable")
+  
+  
   Xorder <- apply(X,2,rank)
   
   if (is.null(num_nodes)) {# single-threaded version
@@ -41,6 +45,7 @@ WRSEL <- function(X, num_nodes = NULL) {
     }
   } else {
     stopifnot(is.numeric(num_nodes))
+    if (!("package:parallel" %in% search())) stop("Need to load library parallel externally")
     E_op <- function(i) {
       this_rank <- which(Xorder == i,arr.ind=T)
       mask <- sparseMatrix(i=this_rank[,1], j = this_rank[,2], x = 1,dims = c(n,N))
@@ -65,6 +70,7 @@ WRSEL <- function(X, num_nodes = NULL) {
   
   function(weights){
     stopifnot(is.numeric(weights))
+    if (!length(weights) == n) stop("weight vector needs to be equal to system dimensionality")
     weights_mat <- matrix(weights,n,n)
     colSums(E_lambda * P_lambda * weights_mat) / colSums(P_lambda * weights_mat) 
   }
