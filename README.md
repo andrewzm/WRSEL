@@ -9,21 +9,33 @@ Package details
 ------------------
 
 Package: WRSEL
+
 Type: Package
+
 Title: Weighted Rank Squared Error Loss
+
 Version: 1.0
+
 Date: 2014-09-18
+
 Author: Andrew Zammit Mangion
+
 Maintainer: Andrew Zammit Mangion <andrewzm@gmail.com>
+
 Description: Find the optimal estimate under a weighted rank squared error loss
     (WRSEL) function. For details see Wright, Deanne L., Hal S. Stern, and Noel
     Cressie. "Loss functions for estimation of extrema with an application to
     disease mapping." Canadian Journal of Statistics 31.3 (2003): 251-266.
+
 Suggests:
     parallel
+
 Depends:
     R (>= 2.14)
+
 Imports:
     Matrix
+
 License: GPL (>= 2)
+
 NeedsCompilation: no
