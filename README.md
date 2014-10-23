@@ -20,7 +20,7 @@ Date: 2014-09-18
 
 Author: Andrew Zammit Mangion
 
-Maintainer: Andrew Zammit Mangion <andrewzm [at] gmail.com>
+Maintainer: Andrew Zammit Mangion <azm [@] uow.edu.au>
 
 Description: Find the optimal estimate under a weighted rank squared error loss
     (WRSEL) function. For details see Wright, Deanne L., Hal S. Stern, and Noel
